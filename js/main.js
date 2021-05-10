@@ -26,10 +26,10 @@ function onLoad(){
 
     //workspace.onresize();
 
-    const wsXML = window.localStorage.getItem("WorkspaceSave");
+    /*const wsXML = window.localStorage.getItem("WorkspaceSave");
     if(wsXML !== null){
         workspace.updateWorkspaceXML(wsXML);
-    }
+    }*/
 }
 function onInit(){
     workspace.clear();
@@ -38,21 +38,9 @@ function onInit(){
 function onExport(){
     const wsDOM = workspace.getWorkspaceDOM();
     const generator = new ModelGenerator(wsDOM);
-    const lineArray = generator.generate();
+    /*const lineArray = generator.generate();
     for(let i = 0; i < lineArray.length; i++){
         console.log(lineArray[i]);
-    }
+    }*/
 }
-
-
-function onNewMessageTypeReference(){
-
-}
-function onNewTopicReference(){
-
-}
-function onNewNodeReference(){
-
-}
-
 window.onload = onLoad;

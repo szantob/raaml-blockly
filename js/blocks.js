@@ -113,7 +113,7 @@ Blockly.Blocks['elementtypefailuremode'] = {
     init: function() {
         this.appendDummyInput()
             .appendField(new Blockly.FieldTextInput("failureMode"), "name");
-        this.appendStatementInput("effect")
+        this.appendStatementInput("condition")
             .setCheck("ElementTypeFailureModeCondition")
             .appendField("Conditions:");
         this.appendStatementInput("effect")
