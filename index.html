@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Blockly</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="js/lib/blockly/blockly_compressed.js"></script>
+    <script src="js/lib/blockly/blocks_compressed.js"></script>
+    <script src="js/lib/blockly/msg/js/en.js"></script>
+    <script src="js/lib/BlocklyDOM/blocklyDOM.js"></script>
+    <script src="js/lib/bmf/bmf.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/blocks.js"></script>
+    <script src="js/generator.js"></script>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<nav class="navbar">
+    <div class="dropdown">
+        <button class="dropbtn">File
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <button onclick="onInit()">New</button>
+            <button onclick="onOpen()">Open</button>
+            <button onclick="onSave()">Save</button>
+            <button onclick="onDownload()">Download</button>
+            <button onclick="onUpload()">Upload</button>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Edit
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <button onclick="onUndo()">Undo</button>
+            <button onclick="onRedo()">Redo</button>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Model
+            <i class="fa fa-caret-down"></i>
+        </button>
+        <div class="dropdown-content">
+            <button onclick="">New Message Type</button>
+            <button onclick="">New Topic</button>
+            <button onclick="">New Node</button>
+            <button onclick="onExport()">Export Model</button>
+        </div>
+    </div>
+</nav>
+<main class="row" id="blocklyArea">
+    <div id="blocklyDiv" style="height: 650px; width: 1280px;">
+        <xml xmlns="https://developers.google.com/Blockly/xml" id="toolbox" style="display: none">
+            <block type="scenario"></block>
+            <block type="cause"></block>
+            <block type="failuremode"></block>
+            <block type="effect"></block>
+            <block type="risk"></block>
+            <block type="elementtype"></block>
+            <block type="elementtypefailuremode"></block>
+            <block type="elementtypefailuremodeeffect"></block>
+            <block type="effectfactor"></block>
+            <block type="elementtypefailuremodecondition"></block>
+            <block type="elementtypefailuremodeconditiont"></block>
+        </xml>
+    </div>
+</main>
+</body>
+</html>
