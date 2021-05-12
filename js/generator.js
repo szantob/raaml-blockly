@@ -41,7 +41,10 @@ class ModelGenerator{
             const conditions = conditionsStmt.toBlockList();
             for(let i = 0; i < conditions.length; i++){
                 const condition = conditions[i]
-                model.conditions.push();
+                const name = condition.getFieldText("name");
+                const type = condition.get
+
+                model.conditions.push({name:name});
             }
         }
         const effectsStmt = failureMode.getStatementByName("effect");

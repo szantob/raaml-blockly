@@ -129,7 +129,7 @@ Blockly.Blocks['elementtypefailuremode'] = {
 
 Blockly.Blocks['elementtypefailuremodeeffect'] = {
     init: function() {
-        this.appendValueInput("NAME")
+        this.appendValueInput("effectFactor")
             .setCheck("EffectFactor")
             .appendField(new Blockly.FieldTextInput("default"), "name")
             .appendField("on:");
