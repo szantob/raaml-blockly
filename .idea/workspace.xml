@@ -2,11 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b99e0187-3c7a-4e46-a567-4a77334264b8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../model/erdiagram.aird" beforeDir="false" afterPath="$PROJECT_DIR$/../model/erdiagram.aird" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../model/minimal.ecore" beforeDir="false" afterPath="$PROJECT_DIR$/../model/minimal.ecore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/js/resilBlocklyReader.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/blocks.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/blocks.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/generator.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/generator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/lib/ResilBlocklyConnector/blocklyDOM.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/main.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +74,7 @@
       <workItem from="1620393275593" duration="11058000" />
       <workItem from="1620656049230" duration="963000" />
       <workItem from="1620658055692" duration="5733000" />
+      <workItem from="1632921987758" duration="1717000" />
     </task>
     <servers />
   </component>

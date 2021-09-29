@@ -9,6 +9,9 @@
     <script src="js/lib/blockly/msg/js/en.js"></script>
     <script src="js/lib/BlocklyDOM/blocklyDOM.js"></script>
     <script src="js/lib/bmf/bmf.js"></script>
+    <script src="js/lib/ResilBlocklyConnector/ResilBlocklyProfile.js"></script>
+    <script src="js/lib/ResilBlocklyConnector/ResilBlocklyModel.js"></script>
+    <script src="js/resilBlocklyReader.js"></script>
     <script src="js/main.js"></script>
     <script src="js/blocks.js"></script>
     <script src="js/generator.js"></script>
@@ -42,9 +45,7 @@
             <i class="fa fa-caret-down"></i>
         </button>
         <div class="dropdown-content">
-            <button onclick="">New Message Type</button>
-            <button onclick="">New Topic</button>
-            <button onclick="">New Node</button>
+            <button onclick="onResilBlocklyImport()">Import ResilBlockly Model</button>
             <button onclick="onExport()">Export Model</button>
         </div>
     </div>
