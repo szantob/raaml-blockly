@@ -1,0 +1,38 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+    <block type="menu" id="~Of(}~A7vqEHfnj/6s8Q" x="-386" y="-469">
+        <field name="name">Elements</field>
+        <statement name="items">
+            <block type="menuitem" id="c5d[H1*6EVM}t^G=V1^H">
+                <field name="name">Pipe</field>
+                <next>
+                    <block type="menuitem" id="Q]FMD[*72%1?O3|6VfVM">
+                        <field name="name">Tank</field>
+                        <next>
+                            <block type="menuitem" id="myC`Y:lpwvk#ubzr0Xe0">
+                                <field name="name">ValveActuator</field>
+                                <next>
+                                    <block type="menuitem" id="qm*#zmO-huO%JAN)}b]`">
+                                        <field name="name">Valve</field>
+                                        <next>
+                                            <block type="menuitem" id="}!GU3Io[4wQC4~$J7t]2">
+                                                <field name="name">WaterLevelSensor</field>
+                                                <next>
+                                                    <block type="menuitem" id="O_hp8)~g#6;w_d/]5LZ]">
+                                                        <field name="name">WaterQualitySensor</field>
+                                                    </block>
+                                                </next>
+                                            </block>
+                                        </next>
+                                    </block>
+                                </next>
+                            </block>
+                        </next>
+                    </block>
+                </next>
+            </block>
+        </statement>
+    </block>
+    <block type="class" id="E$F#W!c,J.#CH{T?$zH!" x="-568" y="94">
+        <field name=\"name\">Pipe</field>
+    <field name=\"colour\">#cccccc</field>
+<field name=\"superclass\"></field><statement name=\"attributes\"><block type=\"attribute\" id=\"hp6ca.c4$_v@=,wMHh7?\"><field name=\"name\">diameter</field><field name=\"type\">string</field></block></statement></block><block type=\"class\" id=\"3:_c43l0W}PpxPZ:U.``\" x=\"-328\" y=\"92\"><field name=\"name\">Tank</field><field name=\"colour\">#ffcc00</field><field name=\"superclass\"></field><statement name=\"attributes\"><block type=\"attribute\" id=\")T3R,A(_Z2JaJ@f/,)Vz\"><field name=\"name\">level</field><field name=\"type\">string</field></block></statement><statement name=\"relations\"><block type=\"relation\" id=\"[wF=kyq{jvJh`jI+c%(%\"><field name=\"name\">inputPipe</field><field name=\"classname\">Pipe</field><field name=\"type\">reference</field><field name=\"cardinality\">1</field><next><block type=\"relation\" id=\"abyHR)@yV=s+h#`td-5!\"><field name=\"name\">outputPipe</field><field name=\"classname\">Pipe</field><field name=\"type\">reference</field><field name=\"cardinality\">1</field></block></next></block></statement></block><block type=\"class\" id=\"tx7rVl$.oK.hn*;[phT.\" x=\"-47\" y=\"93\"><field name=\"name\">ValveActuator</field><field name=\"colour\">#33ccff</field><field name=\"superclass\"></field><statement name=\"relations\"><block type=\"relation\" id=\"-}]BSt6t:#dbR^iikFHe\"><field name=\"name\">valve</field><field name=\"classname\">Valve</field><field name=\"type\">reference</field><field name=\"cardinality\">1</field></block></statement></block><block type=\"class\" id=\"NF=/e:lpNDEt8:+ENrDh\" x=\"-577\" y=\"502\"><field name=\"name\">Valve</field><field name=\"colour\">#99ff99</field><field name=\"superclass\"></field><statement name=\"relations\"><block type=\"relation\" id=\"d+msGxjqZO[I_EW]Pt=v\"><field name=\"name\">inputPipe</field><field name=\"classname\">Pipe</field><field name=\"type\">reference</field><field name=\"cardinality\">1</field><next><block type=\"relation\" id=\"j^MnwPjJ3xKyFL`:-z4z\"><field name=\"name\">outputPipe</field><field name=\"classname\">Pipe</field><field name=\"type\">reference</field><field name=\"cardinality\">1</field></block></next></block></statement></block><block type=\"class\" id=\"n,BnlcXK|mFR3sHd.DH`\" x=\"-114\" y=\"494\"><field name=\"name\">Sensor</field><field name=\"colour\">#33ccff</field><field name=\"superclass\"></field></block><block type=\"class\" id=\"4sr4i$kt!,l(k2cyS7*T\" x=\"-279\" y=\"671\"><field name=\"name\">WaterLevelSensor</field><field name=\"colour\">#33ccff</field><field name=\"superclass\">Sensor</field><statement name=\"attributes\"><block type=\"attribute\" id=\"6j]Yu95,u=@#zAgX5KJs\"><field name=\"name\">waterLevel</field><field name=\"type\">string</field></block></statement></block><block type=\"class\" id=\"}Zp;[04,6qfAUH%fN1p_\" x=\"-20\" y=\"673\"><field name=\"name\">WaterQualitySensor</field><field name=\"colour\">#33ccff</field><field name=\"superclass\">Sensor</field><statement name=\"attributes\"><block type=\"attribute\" id=\"[c:cU1]6P/@Yuxglgx}[\"><field name=\"name\">waterQuality</field><field name=\"type\">string</field></block></statement></block></xml>

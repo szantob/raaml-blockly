@@ -106,7 +106,7 @@ class WorkspaceDOM 	extends abstractDOMObject{
 	}
 
 	static create(){
-    	return new WorkspaceDOM(this.defaultXml);
+    	return new WorkspaceDOM(Blockly.Xml.textToDom(this.defaultXml));
 	}
 }
 class BlockDOM 		extends abstractDOMObject{
@@ -143,7 +143,7 @@ class BlockDOM 		extends abstractDOMObject{
 	setType				= setAttributeFunctionFactory(this,"type");
 	setId				= setAttributeFunctionFactory(this,"id");
 	setX				= setAttributeFunctionFactory(this,"x");
-	setY				= setAttributeFunctionFactory(this,"x");
+	setY				= setAttributeFunctionFactory(this,"y");
 	setCollapsed		= setAttributeFunctionFactory(this,"collapsed");
 	setDisabled			= setAttributeFunctionFactory(this,"disabled");
 

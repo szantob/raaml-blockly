@@ -209,6 +209,10 @@ class AbstractBMFWorkspace{
     updateWorkspaceXML(xml){
         this.updateWorkspace(Blockly.Xml.textToDom(xml));
     }
+    clear(){
+        this.workspace.clear();
+        this.updateWorkspaceXML("<xml xmlns=\"https://developers.google.com/blockly/xml\" id=\"workspace\" style=\"display: none\"></xml>");
+    }
 
     onresize() {
         // Compute the absolute coordinates and dimensions of blocklyArea.

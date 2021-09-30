@@ -108,7 +108,19 @@ Blockly.Blocks['elementtype'] = {
         this.setHelpUrl("");
     }
 };
-
+Blockly.Blocks['elementtypegen'] = {
+    init: function() {
+        this.appendDummyInput()
+            .appendField(new Blockly.FieldLabelSerializable(""), "name");
+        this.appendDummyInput()
+            .appendField("FailureModes:");
+        this.appendStatementInput("failureModes")
+            .setCheck("ElementTypeFailureMode");
+        this.setColour(125);
+        this.setTooltip("asd");
+        this.setHelpUrl("");
+    }
+};
 Blockly.Blocks['elementtypefailuremode'] = {
     init: function() {
         this.appendDummyInput()
