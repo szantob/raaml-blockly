@@ -98,5 +98,10 @@ function onShowReferenceMatrix(id){
         }
     }
 }
+function onNewFailureMode(id){
+    const wsdom = new WorkspaceDOM(workspace.getWorkspaceDOM());
+    const blockdom = wsdom.getBlockById(id);
+    //TODO
+}
 
 window.onload = onLoad;

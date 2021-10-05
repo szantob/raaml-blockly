@@ -123,7 +123,7 @@ Blockly.Blocks['elementtypegen'] = {
             options[0] = options[1]; //Remove Duplicate[0] + Shift Add Comment[1]
             options[1] = options[3]; //Remove Inline Inputs[2] + Shift Collapse Block[3]
             options[2] = options[4]; //Shift Disable[4]
-            options[3] = {text:"Add Failure Mode",enabled:true,callback:()=>{}} //Remove Delete[5]
+            options[3] = {text:"Add Failure Mode",enabled:true,callback:onAddNewFailureModeCallbackFactory(this.id)} //Remove Delete[5]
             options[4] = {text:"Show transfer matrix",enabled:true, callback:onShowReferenceMatrixCallbackFactory(this.id)}
             options[5] = options[6]; //Shift Help[6]
             options[6] = null;
@@ -206,5 +206,10 @@ Blockly.Blocks['elementtypefailuremodeconditiont'] = {
 function onShowReferenceMatrixCallbackFactory(id){
     return function (){
         onShowReferenceMatrix(id)
+    }
+}
+function onAddNewFailureModeCallbackFactory(id){
+    return function (){
+        onNewFailureMode(id);
     }
 }
