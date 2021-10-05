@@ -113,12 +113,21 @@ Blockly.Blocks['elementtypegen'] = {
         this.appendDummyInput()
             .appendField(new Blockly.FieldLabelSerializable(""), "name");
         this.appendDummyInput()
-            .appendField("FailureModes:");
+            .appendField(new Blockly.FieldLabel("FailureModes:"));
         this.appendStatementInput("failureModes")
             .setCheck("ElementTypeFailureMode");
         this.setColour(125);
-        this.setTooltip("asd");
+        this.setTooltip("FailureModes");
         this.setHelpUrl("");
+        this.customContextMenu = function(options) {
+            options[0] = options[1]; //Remove Duplicate[0] + Shift Add Comment[1]
+            options[1] = options[3]; //Remove Inline Inputs[2] + Shift Collapse Block[3]
+            options[2] = options[4]; //Shift Disable[4]
+            options[3] = {text:"Add Failure Mode",enabled:true,callback:()=>{}} //Remove Delete[5]
+            options[4] = {text:"Show transfer matrix",enabled:true, callback:onShowReferenceMatrixCallbackFactory(this.id)}
+            options[5] = options[6]; //Shift Help[6]
+            options[6] = null;
+        };
     }
 };
 Blockly.Blocks['elementtypefailuremode'] = {
@@ -136,6 +145,8 @@ Blockly.Blocks['elementtypefailuremode'] = {
         this.setColour(330);
         this.setTooltip("");
         this.setHelpUrl("");
+        this.customContextMenu = function(options) {
+        };
     }
 };
 
@@ -191,3 +202,9 @@ Blockly.Blocks['elementtypefailuremodeconditiont'] = {
         this.setHelpUrl("");
     }
 };
+
+function onShowReferenceMatrixCallbackFactory(id){
+    return function (){
+        onShowReferenceMatrix(id)
+    }
+}
