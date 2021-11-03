@@ -11,10 +11,11 @@
     <script src="js/lib/bmf/bmf.js"></script>
     <script src="js/lib/ResilBlocklyConnector/ResilBlocklyProfile.js"></script>
     <script src="js/lib/ResilBlocklyConnector/ResilBlocklyModel.js"></script>
-    <script src="js/resilBlocklyReader.js"></script>
+    <script src="js/failureModeModeller.js"></script>
     <script src="js/main.js"></script>
     <script src="js/blocks.js"></script>
     <script src="js/generator.js"></script>
+    <script src="js/main.js"></script>
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
@@ -51,7 +52,7 @@
     </div>
 </nav>
 <main class="row" id="blocklyArea">
-    <div id="blocklyDiv" style="height: 650px; width: 1280px;">
+    <div id="blocklyDiv" style="height: 650px; width: 1000px;">
         <xml xmlns="https://developers.google.com/Blockly/xml" id="toolbox" style="display: none">
             <block type="scenario"></block>
             <block type="cause"></block>
@@ -65,6 +66,9 @@
             <block type="elementtypefailuremodecondition"></block>
             <block type="elementtypefailuremodeconditiont"></block>
         </xml>
+    </div>
+    <div id="sideTools" style="width: 349px; background-color:gray">
+
     </div>
 </main>
 </body>

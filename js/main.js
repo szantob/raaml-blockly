@@ -1,6 +1,3 @@
-let model;
-let profile;
-
 class Workspace extends AbstractBMFWorkspace{
     constructor(area,div,toolbox) {
         super();
@@ -10,6 +7,9 @@ class Workspace extends AbstractBMFWorkspace{
     }
 }
 
+let model;
+let profile;
+const failureModeModel = new FailureModeModel();
 let workspace = null;
 
 function onSave(){
@@ -59,36 +59,40 @@ function onResilBlocklyImport(){
     profile = new Profile(resilBlocklyProfile);
     model = new Model(modelStr, profile);
 
-
-    for(let i = 0; i < profile.classes.length; i++) {
-        const pclass = profile.classes[i];
-        const classBlock = BlockDOM.create("elementtypegen")
-        classBlock.setFieldText("name",pclass.name)
-        classBlock.setPos(40,30*i);
-        for (let j = 0; j < pclass.attributes.length; j++) {
-            const attribute = pclass.attributes[j];
-        }
-        for (let j = 0; j < pclass.relations.length; j++) {
-            const relation = pclass.relations[j];
-        }
-        blocklyWs.add(classBlock);
-    }
-    workspace.updateWorkspace(blocklyWs.xml)
+    failureModeModel.updateProfile(profile);
+    failureModeModel.updateBlocklyWorkspace(blocklyWs);
+    console.log(failureModeModel)
 }
 
-function onShowReferenceMatrix(id){
+function onShowModelElement(id){
     const wsdom = new WorkspaceDOM(workspace.getWorkspaceDOM());
     const blockdom = wsdom.getBlockById(id);
     const name = blockdom.getFieldByName("name").getText();
     const profileClass = profile.getClassByName(name);
     const references = profileClass.relations;
+    if(references.length === 0) return;
+
+    const sideContentDIV = document.getElementById("sideTools");
+
+    let htmltext = "<table>\n\t<tr>\n\t\t<td></td>\n"
     for(let i = 0; i < references.length; i++){
-        for(let j = 0; j < references.length; j++) {
-            if(i!==j){
-                console.log(references[i].name+"->"+references[j].name);
-            }
-        }
+        htmltext += "\t\t<td>"+references[i].name+"</td>\n"
     }
+    htmltext += "\t</tr>\n"
+
+    for(let i = 0; i < references.length; i++){
+        htmltext += "\t</tr>\n\t\t<td>"+references[i].name+"</td>\n"
+        for(let j = 0; j < references.length; j++) {
+            htmltext += "\t\t<td></td>\n"
+        }
+        htmltext += "\t</tr>\n"
+    }
+    htmltext += "</table>"
+    sideContentDIV.innerHTML = htmltext;
+}
+
+function setSideContent(){
+    sideContentDIV.innerText = "asd";
 }
 
 window.onload = onLoad;

@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Pipe",
+    "relations": [
+      {
+        "name": "A",
+        "variables": [
+          "f"
+        ]
+      },
+      {
+        "name": "B",
+        "variables": [
+          "f"
+        ]
+      }
+    ],
+    "transfer":[
+      "A.f -> B.f = A.f",
+      "B.f -> A.f = B.f"
+    ],
+    "failureModes": [
+      "A.f -> "
+    ]
+  }
+]
