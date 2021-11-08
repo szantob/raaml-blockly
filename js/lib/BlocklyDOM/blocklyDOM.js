@@ -298,6 +298,12 @@ class CommentDOM 	extends abstractDOMObject{
 		comment.setPinned(pinned);
 		return comment;
 	}
+	static create(text){
+		const comment = new CommentDOM();
+		comment.initialize();
+		comment.setText(text);
+		return comment;
+	}
 }
 class ValueDOM 		extends abstractDOMObject{
 	defaultXml = '<value name=" "> </value>';

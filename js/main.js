@@ -66,6 +66,29 @@ function onResilBlocklyImport(){
     failureModeModel.updateProfile(profile);
     failureModeModel.updateBlocklyWorkspace(blocklyWs);
     console.log(failureModeModel)
+
+    for(let i = 0; i < profile.classes.length; i++) {
+        const pclass = profile.classes[i];
+        const classBlock = BlockDOM.create("elementtypegen")
+        classBlock.setFieldText("name",pclass.name)
+        classBlock.setPos(40,30*i);
+        let commentString = "Attributes: {\n"
+        for (let j = 0; j < pclass.attributes.length; j++) {
+            const attribute = pclass.attributes[j];
+            commentString += "  " + attribute.type + ":" + attribute.name + ";\n"
+        }
+        commentString += "}\nRelations: {\n";
+        for (let j = 0; j < pclass.relations.length; j++) {
+            const relation = pclass.relations[j];
+            console.log(relation)
+            commentString += "  " + relation.name + "-->" + relation.classname + ";\n"
+        }
+        commentString += "}";
+        classBlock.setComment(CommentDOM.create(commentString));
+        blocklyWs.add(classBlock);
+    }
+    console.log(blocklyWs.xml)
+    workspace.updateWorkspace(blocklyWs.xml)
 }
 
 function onShowModelElement(id){
@@ -96,6 +119,11 @@ function onShowModelElement(id){
 
 function setSideContent(){
     sideContentDIV.innerText = "asd";
+}
+function onNewFailureMode(id){
+    const wsdom = new WorkspaceDOM(workspace.getWorkspaceDOM());
+    const blockdom = wsdom.getBlockById(id);
+    //TODO
 }
 
 window.onload = onLoad;
