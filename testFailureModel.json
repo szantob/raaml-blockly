@@ -5,13 +5,15 @@
       {
         "name": "A",
         "variables": [
-          "pressure"
+          "pressure",
+          "quality"
         ]
       },
       {
         "name": "B",
         "variables": [
-          "pressure"
+          "pressure",
+          "quality"
         ]
       }
     ],
@@ -19,13 +21,24 @@
     ],
     "regularModes":[
       "A.pressure = x -> B.pressure = x",
-      "B.pressure = x -> A.pressure = x"
+      "B.pressure = x -> A.pressure = x",
+      "A.quality = x -> B.quality = x",
+      "B.quality = x -> A.quality = x"
     ],
     "failureModes": [
-      "A.pressure = x -> B.pressure < x",
-      "A.pressure = x -> B.pressure > x",
-      "B.pressure = x -> A.pressure < x",
-      "B.pressure = x -> A.pressure > x"
+      {
+        "name": "leak_overpressure",
+        "modes": [
+          "A.pressure = x -> B.pressure < x",
+          "B.pressure = x -> A.pressure < x"
+        ]
+      },{
+        "name": "leak_underpressure",
+        "modes": [
+          "A.pressure = x; A.quality = y -> B.pressure > x; B.quality < y",
+          "B.pressure = x; B.quality = y -> A.pressure > x; A.quality < y"
+        ]
+      }
     ]
   }
 ]

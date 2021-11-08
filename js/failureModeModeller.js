@@ -14,7 +14,7 @@ class FailureModeModel{
         for (let i = 0; i < elemets.length; i++){
             this.modelElements.push(failureModeModelElement.readResilBlockly(elemets[i]));
         }
-        console.log(this);
+        console.log(JSON.stringify(this),null,'\t');
     }
     updateBlocklyWorkspace(blocklyWorkspace){
         for(let i = 0; i < this.modelElements.length; i++) {
@@ -55,42 +55,44 @@ class failureModeModelElement extends FailureModeModelObject{
         const el = new failureModeModelElement();
         el.name = element.name;
         for (let i = 0; i < element.attributes.length; i++){
-            el.attributes.push(new failureModeModelElementAttribute().readResilBlockly(element.attributes[i]));
+            el.attributes.push(FailureModeModelElementAttribute.readResilBlockly(element.attributes[i]));
         }
         for (let i = 0; i < element.relations.length; i++){
-            el.relations.push(new failureModeModelElementRelation().readResilBlockly(element.relations[i]));
+            el.relations.push(FailureModeModelElementRelation.readResilBlockly(element.relations[i]));
         }
         return el;
     }
-    readJSON(jsonObject){
-        this.name = jsonObject.name;
+    static readJSON(jsonObject){
+        const el = new failureModeModelElement();
+        el.name = jsonObject.name;
         for (let i = 0; i < jsonObject.relations.length; i++){
-            this.relations.push(new failureModeModelElementRelation(jsonObject.relations[i]));
+            el.relations.push(FailureModeModelElementRelation.readJSON(jsonObject.relations[i]));
         }
         for (let i = 0; i < jsonObject.attributes.length; i++){
-            this.attributes.push(new failureModeModelElementAttribute(jsonObject.attributes[i]));
+            el.attributes.push(FailureModeModelElementAttribute.readJSON(jsonObject.attributes[i]));
         }
         for (let i = 0; i < jsonObject.regularModes.length; i++){
-            this.regularModes.push(new failureModeModelElementRegularMode(jsonObject.regularModes[i]));
+            el.regularModes.push(FailureModeModelElementRegularMode.readJSON(jsonObject.regularModes[i]));
         }
         for (let i = 0; i < jsonObject.failureModes.length; i++){
-            this.failureModes.push(new failureModeModelElementFailureMode(jsonObject.failureModes[i]));
+            el.failureModes.push(FailureModeModelElementFailureMode.readJSON(jsonObject.failureModes[i]));
         }
+        return el;
     }
 }
-class failureModeModelElementAttribute extends FailureModeModelObject{
+class FailureModeModelElementAttribute extends FailureModeModelObject{
     constructor(elementAttribute) {
         super()
         //TODO
     }
-    readResilBlockly(){
+    static readResilBlockly(){
 
     }
-    readJSON(){
+    static readJSON(){
 
     }
 }
-class failureModeModelElementRelation extends FailureModeModelObject{
+class FailureModeModelElementRelation extends FailureModeModelObject{
     constructor(relation) {
         super()
         this.name = "";
@@ -99,29 +101,33 @@ class failureModeModelElementRelation extends FailureModeModelObject{
         //this.type = "";                               ResilBlockly info not in use
         this.variables = [];
     }
-    readResilBlockly(relation){
-        this.name = relation.name;
-        this.classname = relation.classname;
-        //this.cardinality = relation.cardinality;      ResilBlockly info not in use
-        //this.type = relation.type;                    ResilBlockly info not in use
+    static readResilBlockly(relation){
+        const er = new FailureModeModelElementRelation()
+        er.name = relation.name;
+        er.classname = relation.classname;
+        //er.cardinality = relation.cardinality;      ResilBlockly info not in use
+        //er.type = relation.type;                    ResilBlockly info not in use
+        return er;
     }
-    readJSON(){
+    static readJSON(){
 
     }
 }
-class failureModeModelElementRegularMode extends FailureModeModelObject{
-    readResilBlockly(){
-
+class FailureModeModelElementRegularMode extends FailureModeModelObject{
+    constructor() {
+        super();
     }
-    readJSON(){
+    static readJSON(){
 
     }
 }
-class failureModeModelElementFailureMode extends FailureModeModelObject{
-    readResilBlockly(){
-
+class FailureModeModelElementFailureMode extends FailureModeModelObject{
+    constructor() {
+        super();
+        this.name = "";
+        this.modes = [];
     }
-    readJSON(){
+    static readJSON(){
 
     }
 }
