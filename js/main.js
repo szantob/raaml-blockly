@@ -11,6 +11,7 @@ let model;
 let profile;
 const failureModeModel = new FailureModeModel();
 let workspace = null;
+let sideContentDIV;
 
 function onSave(){
     const wsXML = workspace.getWorkspaceXML();
@@ -33,6 +34,9 @@ function onLoad(){
     if(wsXML !== null){
         workspace.updateWorkspaceXML(wsXML);
     }*/
+
+
+    sideContentDIV = document.getElementById("sideTools");
 }
 function onInit(){
     workspace.clear();
@@ -72,7 +76,6 @@ function onShowModelElement(id){
     const references = profileClass.relations;
     if(references.length === 0) return;
 
-    const sideContentDIV = document.getElementById("sideTools");
 
     let htmltext = "<table>\n\t<tr>\n\t\t<td></td>\n"
     for(let i = 0; i < references.length; i++){
